@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "terra_siege",
   "version": "${version}",
 
-  "name": "Example Mod",
+  "name": "Terra Siege",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
     "Me!"
@@ -13,26 +13,38 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT",
+  "icon": "assets/terra_siege/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
       {
         "adapter": "kotlin",
-        "value": "net.fabricmc.example.ExampleMod"
+        "value": "com.oyosite.ticon.TerraSiege"
+      }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "com.oyosite.ticon.TerraSiegeClient"
+      }
+    ],
+    "fabric-datagen": [
+      {
+        "adapter": "kotlin",
+        "value": "com.oyosite.ticon.util.datagen.DataGenEntrypoint"
       }
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "terra_siege.mixins.json"
   ],
 
   "depends": {
     "fabricloader": ">=0.13.3",
     "fabric": "*",
-    "minecraft": "1.18.x",
+    "minecraft": "1.19.x",
     "java": ">=17",
     "fabric-language-kotlin": ">=1.7.1+kotlin.1.6.10"
   },

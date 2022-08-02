@@ -1,0 +1,37 @@
+{
+  "type": "terra_siege:terrathil_dimension_type",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "terra_siege:terrathil",
+    "biome_source": {
+      "type": "multi_noise",
+      "large_biomes": true,
+      "biomes": [
+        {
+          "biome": "terra_siege:terrathil/terrathil_plains",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0,
+            "continentalness": 0.1,
+            "erosion": 1,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        },
+        {
+          "biome": "terra_siege:terrathil/terrathil_forest",
+          "parameters": {
+            "temperature": 0,
+            "humidity": 0.05,
+            "continentalness": 0.15,
+            "erosion": 0.8,
+            "weirdness": 0,
+            "depth": 0,
+            "offset": 0
+          }
+        }
+      ]
+    }
+  }
+}

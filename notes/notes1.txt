@@ -1,0 +1,17 @@
+custom grasses:
+ purpleish grass
+ flowery grass - maybe carpet flower block instead of custom grass
+ golden grass
+
+ores:
+ copper
+ aluminum (bauxite?)
+ galena?
+  silver
+  lead
+ magnetite
+ pyrite
+ tin
+ hematite
+ chromium
+ titanium
