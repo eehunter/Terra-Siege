@@ -14,6 +14,7 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+    mavenCentral()
     maven{name = "JitPack"; setUrl("https://jitpack.io"); metadataSources { artifact() }}
 }
 
@@ -74,5 +75,21 @@ java {
 }
 
 
+loom{
 
+    runs {
+
+        create("Data Generation"){
+            client()
+            vmArg("-Dfabric-api.datagen")
+            vmArg("-Dfabric-api.datagen.output-dir=${file("src/main/generated")}")
+            vmArg("-Dfabric-api.datagen.strict_validation")
+
+            ideConfigGenerated(true)
+            runDir = "build/datagen"
+
+
+        }
+    }
+}
 // configure the maven publication

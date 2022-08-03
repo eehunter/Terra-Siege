@@ -1,0 +1,123 @@
+{
+  "name": "terra_siege:castle/village/streets",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 5,
+      "element": {
+        "element_type": "minecraft:list_pool_element",
+        "projection": "terrain_matching",
+        "elements": [
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/crossroads_06",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/crossroads_05",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/crossroads_04",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/crossroads_03",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/crossroads_02",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/crossroads_01",
+            "processors": "minecraft:empty"
+          }
+        ]
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "element_type": "minecraft:list_pool_element",
+        "projection": "terrain_matching",
+        "elements": [
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/straight_06",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/straight_05",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/straight_04",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/straight_03",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/straight_02",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/straight_01",
+            "processors": "minecraft:empty"
+          }
+        ]
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "element_type": "minecraft:list_pool_element",
+        "projection": "terrain_matching",
+        "elements": [
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/corner_03",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "rigid",
+            "location": "terra_siege:castle/village/streets/corner_02",
+            "processors": "minecraft:empty"
+          },
+          {
+            "element_type": "minecraft:legacy_single_pool_element",
+            "projection": "terrain_matching",
+            "location": "terra_siege:castle/village/streets/corner_01",
+            "processors": "minecraft:empty"
+          }
+        ]
+      }
+    }
+  ]
+}
