@@ -17,6 +17,8 @@ object TerraSiege : ModInitializer {
     const val MODID = "terra_siege"
     /**Make an identifier for Terra Siege*/
     fun id(id: String) = (if(id.contains(":"))Identifier(id) else Identifier(MODID, id))
+    /**Make an identifier for a common tag*/
+    fun cid(id: String) = (if(id.contains(":"))Identifier(id) else Identifier("c", id))
     /**Terra Siege logger*/
     val LOGGER: Logger = LogManager.getLogger()
 

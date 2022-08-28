@@ -90,7 +90,7 @@ class CastleGenerator {
         override fun getId(): Identifier = TerraSiege.id("castle/$templateIdString")
 
         companion object{
-            fun placementData(rotation:BlockRotation,mirror: BlockMirror) = StructurePlacementData().setRotation(rotation).setMirror(mirror)
+            fun placementData(rotation:BlockRotation,mirror: BlockMirror): StructurePlacementData = StructurePlacementData().setRotation(rotation).setMirror(mirror)
             val TYPE: StructurePieceType = Registry.register(Registry.STRUCTURE_PIECE, TerraSiege.id("ctl"), StructurePieceType{ m:StructureContext, nbt:NbtCompound -> Piece(m.structureTemplateManager,nbt)})
         }
     }

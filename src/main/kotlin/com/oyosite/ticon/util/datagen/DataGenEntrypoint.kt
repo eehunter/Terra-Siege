@@ -8,6 +8,7 @@ object DataGenEntrypoint : DataGeneratorEntrypoint {
         println("Hello world from datagen")
         println("Output path: "+dataGen.output)
         dataGen.addProvider(::TerraModelGenerator)
-
+        dataGen.addProvider(::TerraBlockLootTableGenerator)
+        dataGen.addProvider(::TerraRecipeGenerator)
     }
 }

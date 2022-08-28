@@ -16,6 +16,8 @@ repositories {
     // for more information about repositories.
     mavenCentral()
     maven{name = "JitPack"; setUrl("https://jitpack.io"); metadataSources { artifact() }}
+    maven{name = "TerraformersMC"; setUrl("https://maven.terraformersmc.com/")}
+    maven{name = "Ladysnake Libs"; setUrl("https://ladysnake.jfrog.io/artifactory/mods")}
 }
 
 dependencies {
@@ -27,6 +29,8 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_api_version")}")
 
     modImplementation("com.github.DaFuqs:Revelationary:${property("revelationary_version")}")
+
+    modImplementation("dev.emi:trinkets:${property("trinkets_version")}")
 }
 
 tasks {
