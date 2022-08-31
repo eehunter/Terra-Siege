@@ -21,7 +21,7 @@ class TerraBlockLootTableGenerator(dataGenerator: FabricDataGenerator): FabricBl
         TERRA_PLANKS drops ITSELF
         TERRA_LEAVES drops leaves(TERRA_SAPLING, SAPLING_DROP_CHANCE)
 
-        
+
     }
 
 

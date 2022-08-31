@@ -1,6 +1,7 @@
 package com.oyosite.ticon.block
 
 import com.oyosite.ticon.TerraSiege
+import com.oyosite.ticon.item.ItemRegistry
 import com.oyosite.ticon.util.registry.BasicRegistry
 import com.oyosite.ticon.worldgen.Features
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
@@ -33,9 +34,11 @@ object BlockRegistry : BasicRegistry<Block>() {
 
     // Tree stuff
     val TERRA_LOG = "terra_log" register logBlock(MapColor.OAK_TAN, MapColor.SPRUCE_BROWN)
-    val TERRA_PLANKS = "terra_planks" register Block(blockSettings(Material.WOOD, MapColor.OAK_TAN))
+    val TERRA_PLANKS: Block = "terra_planks" register object : Block(blockSettings(Material.WOOD, MapColor.OAK_TAN)), BlockWithItemSettings{
+        override val itemSettings: FabricItemSettings = FabricItemSettings().group(ItemRegistry.TERRATHIL_ITEM_GROUP)
+    }
     val TERRA_LEAVES = "terra_leaves" register LeavesBlock(blockSettings(Material.LEAVES).strength(0.2f).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning { _: BlockState, _: BlockView, _: BlockPos, _: EntityType<*> -> false }.suffocates { _: BlockState, _: BlockView, _: BlockPos -> false }.blockVision { _: BlockState, _: BlockView, _: BlockPos -> false })
-    val TERRA_SAPLING = "terra_sapling" register TerraSiegeSapling{Features.terraTreeEntry}
+    val TERRA_SAPLING: Block = "terra_sapling" register TerraSiegeSapling{Features.TERRA_TREE.configuredEntry!!}
 
 
 

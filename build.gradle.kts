@@ -30,7 +30,7 @@ dependencies {
 
     modImplementation("com.github.DaFuqs:Revelationary:${property("revelationary_version")}")
 
-    modImplementation("dev.emi:trinkets:${property("trinkets_version")}")
+    //modImplementation("dev.emi:trinkets:${property("trinkets_version")}")
 }
 
 tasks {
