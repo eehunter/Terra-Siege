@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "terra_siege:block/terra_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "terra_siege:block/terra_log"
+    },
+    "axis=z": {
+      "model": "terra_siege:block/terra_log",
+      "x": 90
+    }
+  }
+}

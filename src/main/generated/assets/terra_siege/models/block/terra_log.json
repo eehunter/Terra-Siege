@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "terra_siege:block/terra_log_top",
+    "side": "terra_siege:block/terra_log_side"
+  }
+}

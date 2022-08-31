@@ -8,6 +8,7 @@ import com.oyosite.ticon.dimensions.TerrathilDimension
 import com.oyosite.ticon.dimensions.TerrathilDimension.TERRATHIL_BIOMES
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext
+import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.structure.rule.RuleTest
 import net.minecraft.structure.rule.TagMatchRuleTest
@@ -27,29 +28,15 @@ import net.minecraft.world.gen.trunk.StraightTrunkPlacer
 @Suppress("MemberVisibilityCanBePrivate")
 object Features {
     private val allFeatures = mutableListOf<TerraFeatureHolder<*,*>>()
-    private operator fun TerraFeatureHolder<*,*>.unaryPlus() = also(allFeatures::add)
+    operator fun <C: FeatureConfig, F: Feature<C>> TerraFeatureHolder<C,F>.unaryPlus() = also(allFeatures::add)
     val registerAll: Unit get() = allFeatures.forEach(TerraFeatureHolder<*,*>::register.getter)
     val TERRATHIL_STONE_ORE_REPLACEABLES = TagMatchRuleTest(BlockRegistry.TERRATHIL_STONE_ORE_REPLACEABLES)
+    // IDK Why, but BiomeModifications.addFeature doesn't seem to work correctly. For now, features must be referenced in biome JSON to behave correctly.
     fun oreBiomeMod(biomeSelector: (BiomeSelectionContext)->Boolean): TerraFeatureHolder<*,*>.()->Unit = { BiomeModifications.addFeature(biomeSelector, GenerationStep.Feature.UNDERGROUND_ORES, placedKey) }
-    fun terra_ore(
-        id: String, ruleTest: RuleTest = TERRATHIL_STONE_ORE_REPLACEABLES, blockState: BlockState,
-        size: Int, count: Int, minY: Int, maxY: Int,
-        vararg placementModifiers: PlacementModifier = arrayOf(CountPlacementModifier.of(count),SquarePlacementModifier.of(),HeightRangePlacementModifier.trapezoid(YOffset.fixed(minY), YOffset.fixed(maxY))),
-        biomeTag: TagKey<Biome> = TERRATHIL_BIOMES,
-        addToBiomes: TerraFeatureHolder<OreFeatureConfig, Feature<OreFeatureConfig>>.()->Unit = oreBiomeMod { it.biomeRegistryEntry.isIn(biomeTag) }
-    ) = +TerraFeatureHolder(id(id), ConfiguredFeature(Feature.ORE, OreFeatureConfig(ruleTest, blockState,size)), { PlacedFeature(configuredEntry, mutableListOf(*placementModifiers)) }, addToBiomes)
 
-    val TERRA_COPPER_ORE = +TerraFeatureHolder(
-        id("terra_copper_ore"),
-        ConfiguredFeature(Feature.ORE, OreFeatureConfig(TERRATHIL_STONE_ORE_REPLACEABLES, TERRATHIL_COPPER_ORE.defaultState,9)),
-        { PlacedFeature(configuredEntry, mutableListOf<PlacementModifier>(CountPlacementModifier.of(20),SquarePlacementModifier.of(), HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112)))) }
-    ) {
-        BiomeModifications.addFeature(
-            { it.biomeRegistryEntry.isIn(TERRATHIL_BIOMES) },
-            GenerationStep.Feature.UNDERGROUND_ORES,
-            placedKey
-        )
-    }
+
+    val TERRA_COPPER_ORE = terraOre("terra_copper_ore", TERRATHIL_COPPER_ORE, 9, 20, -16, 112)
+
 
     val TERRA_TREE = +TerraFeatureHolder<TreeFeatureConfig, Feature<TreeFeatureConfig>>(
         id("terra_tree"),
