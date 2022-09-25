@@ -3,6 +3,7 @@ package com.oyosite.ticon.worldgen
 import com.oyosite.ticon.TerraSiege.id
 import com.oyosite.ticon.block.BlockRegistry
 import com.oyosite.ticon.block.BlockRegistry.TERRATHIL_COPPER_ORE
+import com.oyosite.ticon.block.BlockRegistry.TERRATHIL_IRON_ORE
 import com.oyosite.ticon.block.BlockRegistry.TERRA_SAPLING
 import com.oyosite.ticon.dimensions.TerrathilDimension
 import com.oyosite.ticon.dimensions.TerrathilDimension.TERRATHIL_BIOMES
@@ -36,6 +37,7 @@ object Features {
 
 
     val TERRA_COPPER_ORE = terraOre("terra_copper_ore", TERRATHIL_COPPER_ORE, 9, 20, -16, 112)
+    val TERRA_IRON_ORE = terraOre("terra_iron_ore", TERRATHIL_IRON_ORE, 9, 20, -16, 112)
 
 
     val TERRA_TREE = +TerraFeatureHolder<TreeFeatureConfig, Feature<TreeFeatureConfig>>(

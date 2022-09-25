@@ -7,6 +7,7 @@ import com.oyosite.ticon.worldgen.Features
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.minecraft.block.*
 import net.minecraft.block.Blocks.COPPER_ORE
+import net.minecraft.block.Blocks.IRON_ORE
 import net.minecraft.entity.EntityType
 import net.minecraft.item.BlockItem
 import net.minecraft.sound.BlockSoundGroup
@@ -30,6 +31,7 @@ object BlockRegistry : BasicRegistry<Block>() {
     val TERRATHIL_STONE_ORE_REPLACEABLES: TagKey<Block> = TagKey.of(Registry.BLOCK_KEY, TerraSiege.id("terrathil_stone_ore_replaceables"))
     // Ores for terrathil dimension
     val TERRATHIL_COPPER_ORE = "terrathil_copper_ore" register OreBlock(blockSettings(COPPER_ORE))
+    val TERRATHIL_IRON_ORE = "terrathil_iron_ore" register OreBlock(blockSettings(IRON_ORE))
 
 
     // Tree stuff

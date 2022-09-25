@@ -1,3 +1,5 @@
+import groovy.lang.Closure
+
 plugins {
     kotlin("jvm")
     id("fabric-loom")
@@ -36,6 +38,7 @@ dependencies {
 tasks {
 
     processResources {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         inputs.property("version", project.version)
         filesMatching("fabric.mod.json") {
             expand(mutableMapOf("version" to project.version))
@@ -46,7 +49,7 @@ tasks {
         from("LICENSE")
     }
 
-    publishing {
+    /*publishing {
         publications {
             create<MavenPublication>("mavenJava") {
                 artifact(remapJar) {
@@ -63,7 +66,7 @@ tasks {
             // uncomment to publish to the local maven
             // mavenLocal()
         }
-    }
+    }*/
 
     compileKotlin {
         kotlinOptions.jvmTarget = "17"
@@ -96,4 +99,22 @@ loom{
         }
     }
 }
+
+sourceSets{
+    main{
+        resources{
+            srcDirs("src/main/generated", "src/main/resources")
+            /*exclude{
+                println(it.path)
+                it.a
+                file("src/main/resources/${it.path}")
+                file("src/main/generated/${it.path}")
+                !it.isDirectory
+
+                false
+            }*/
+        }
+    }
+}
+
 // configure the maven publication

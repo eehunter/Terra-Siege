@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider
 import net.minecraft.block.Block
 import net.minecraft.item.ItemConvertible
 import net.minecraft.item.Items.RAW_COPPER
+import net.minecraft.item.Items.RAW_IRON
 import net.minecraft.loot.LootTable.Builder
 import java.util.function.Function
 
@@ -16,6 +17,7 @@ class TerraBlockLootTableGenerator(dataGenerator: FabricDataGenerator): FabricBl
 
         TERRATHIL_STONE.silkable drops TERRATHIL_COBBLESTONE
         TERRATHIL_COPPER_ORE.silkable drops RAW_COPPER
+        TERRATHIL_IRON_ORE.silkable drops RAW_IRON
 
         TERRA_LOG drops ITSELF
         TERRA_PLANKS drops ITSELF

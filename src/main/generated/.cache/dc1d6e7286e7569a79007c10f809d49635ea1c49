@@ -1,6 +1,7 @@
-// 1.19.1	2022-08-31T17:02:53.1454982	Block Loot Tables
+// 1.19.1	2022-08-31T19:39:40.8123225	Block Loot Tables
 d10d4b7761ff3585fcf8ff35cc4be592654e959d data\terra_siege\loot_tables\blocks\terra_log.json
 cea271d413ea9a56e66ea6eb8ca3fc2378aa132b data\terra_siege\loot_tables\blocks\terra_leaves.json
 9ccdc3161423ed0c32c7cfb28c2ce7f64b4c0f0c data\terra_siege\loot_tables\blocks\terrathil_copper_ore.json
 94b40abd836e1994aa2ca74397c37e1d588b4c17 data\terra_siege\loot_tables\blocks\terra_planks.json
+7cbec1f7ecbae511509e5db1e538cbd67ae98b56 data\terra_siege\loot_tables\blocks\terrathil_iron_ore.json
 c208f68b23f6455c0d5c1b6cc5a574ed33d41d48 data\terra_siege\loot_tables\blocks\terrathil_stone.json

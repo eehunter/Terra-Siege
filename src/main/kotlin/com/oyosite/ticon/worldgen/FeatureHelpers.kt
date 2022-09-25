@@ -4,6 +4,7 @@ import com.oyosite.ticon.TerraSiege
 import com.oyosite.ticon.dimensions.TerrathilDimension
 import com.oyosite.ticon.worldgen.Features.TERRATHIL_STONE_ORE_REPLACEABLES
 import com.oyosite.ticon.worldgen.Features.unaryPlus
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.structure.rule.RuleTest
@@ -23,11 +24,9 @@ fun terraOre(
     id: String, ruleTest: RuleTest = TERRATHIL_STONE_ORE_REPLACEABLES, blockState: BlockState,
     size: Int, count: Int, minY: Int, maxY: Int,
     biomeTag: TagKey<Biome> = TerrathilDimension.TERRATHIL_BIOMES,
-    addToBiomes: TerraFeatureHolder<OreFeatureConfig, Feature<OreFeatureConfig>>.()->Unit = Features.oreBiomeMod { it.biomeRegistryEntry.isIn(biomeTag) },
+    addToBiomes: TerraFeatureHolder<OreFeatureConfig, Feature<OreFeatureConfig>>.()->Unit = Features.oreBiomeMod(BiomeSelectors.tag(TerrathilDimension.TERRATHIL_BIOMES)::test),
     vararg placementModifiers: PlacementModifier = defaultOrePlacementModifiers(count, minY, maxY)
 ): TerraFeatureHolder<OreFeatureConfig, Feature<OreFeatureConfig>> = +TerraFeatureHolder<OreFeatureConfig, Feature<OreFeatureConfig>>(TerraSiege.id(id), ConfiguredFeature(Feature.ORE, OreFeatureConfig(ruleTest, blockState,size)), { PlacedFeature(configuredEntry, mutableListOf(*placementModifiers)) }, addToBiomes)
-fun terraOre(id: String, block: Block, size: Int, count: Int, minY: Int, maxY: Int, biomeTag: TagKey<Biome> = TerrathilDimension.TERRATHIL_BIOMES, addToBiomes: TerraFeatureHolder<OreFeatureConfig, Feature<OreFeatureConfig>>.()->Unit = Features.oreBiomeMod {
-    it.biomeRegistryEntry.isIn(biomeTag)
-}, ruleTest: RuleTest = TERRATHIL_STONE_ORE_REPLACEABLES, vararg placementModifiers: PlacementModifier = defaultOrePlacementModifiers(count, minY, maxY)
+fun terraOre(id: String, block: Block, size: Int, count: Int, minY: Int, maxY: Int, biomeTag: TagKey<Biome> = TerrathilDimension.TERRATHIL_BIOMES, addToBiomes: TerraFeatureHolder<OreFeatureConfig, Feature<OreFeatureConfig>>.()->Unit = Features.oreBiomeMod (BiomeSelectors.tag(TerrathilDimension.TERRATHIL_BIOMES)::test), ruleTest: RuleTest = TERRATHIL_STONE_ORE_REPLACEABLES, vararg placementModifiers: PlacementModifier = defaultOrePlacementModifiers(count, minY, maxY)
 ): TerraFeatureHolder<OreFeatureConfig, Feature<OreFeatureConfig>> =
     terraOre(id, ruleTest, block.defaultState, size, count, minY, maxY, biomeTag, addToBiomes, *placementModifiers)
